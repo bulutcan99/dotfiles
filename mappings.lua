@@ -11,11 +11,10 @@ M.general = {
         require("conform").format()
       end,
       "formatting",
-    }
-
+    },
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
   },
 }
 
