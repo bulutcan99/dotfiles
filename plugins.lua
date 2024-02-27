@@ -52,8 +52,10 @@ local plugins = {
     "nvimtools/none-ls.nvim",
     ft = "go",
     opts = function()
-      return require "custom.configs.null-ls"
+      return require "custom.configs.none-ls"
     end,
   },
+
+  ----------------------------------- debugger --------------------------------
 }
 return plugins
