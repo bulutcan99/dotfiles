@@ -1,5 +1,6 @@
 return {
   "ray-x/go.nvim",
+  lazy = false,
   ft = { "go", "gomod", "gosum", "gowork", "gotmpl" },
   dependencies = {
     {
