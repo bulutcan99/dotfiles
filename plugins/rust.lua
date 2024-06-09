@@ -16,19 +16,8 @@ return {
     end,
   },
   {
-    "mrcjkb/rustaceanvim",
-    version = "^4",
-    ft = { "rust" },
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      local on_attach = require("configs.lspconfig").on_attach
-      local capabilities = require("configs.lspconfig").capabilities
-      vim.g.rustaceanvim = {
-        server = {
-          on_attach = on_attach,
-          capabilities = capabilities,
-        }
-      }
-    end,
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
 }
