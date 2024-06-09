@@ -7,7 +7,7 @@ local options = {
       jump_next = "]]",
       accept = "<CR>",
       refresh = "gr",
-      open = "<M-CR>",
+      open = "<A-CR>", -- Option + Enter
     },
     layout = {
       position = "bottom", -- | top | left | right
@@ -19,12 +19,12 @@ local options = {
     auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<M-l>",
+      accept = "<A-l>", -- Option + l
       accept_word = false,
       accept_line = "<C-j>",
-      next = "<M-]>",
-      prev = "<M-[>",
-      dismiss = "<C-]>",
+      next = "<A-]>", -- Option + ]
+      prev = "<A-[>", -- Option + [
+      dismiss = "<C-]>", -- Control + ]
     },
   },
   filetypes = {
