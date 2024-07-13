@@ -1,36 +1,19 @@
 return {
-  "williamboman/mason.nvim",
-  opts = {
-    ensure_installed = {
-      "bash-language-server",
-      "black",
-      "clangd",
-      "clang-format",
-      "css-lsp",
-      "debugpy",
-      "delve",
-      "dockerfile-language-server",
-      "golangci-lint",
-      "gopls",
-      "html-lsp",
-      "isort",
-      "stylua",
-      "taplo",
-      "terraform-ls",
-      "tflint",
-      "typescript-language-server",
-      "lua-language-server",
-      "markdownlint",
-      "marksman",
-      "prettier",
-      "pylint",
-      "pyright",
-      "rubocop",
-      "ruby-lsp",
-      "shfmt",
-      "sql-formatter",
-      "vim-language-server",
-      "yaml-language-server",
-    },
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUpdate" },
+    config = function(_, opts)
+      require('mason').setup(opts)
+    end
   },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = require "plugins.configs.mason",
+    dependencies = { "williamboman/mason.nvim" },
+    cmd = {
+      "MasonToolsInstall", "MasonToolsInstallSync",
+      "MasonToolsUpdate", "MasonToolsUpdateSync",
+      "MasonToolsClean",
+    }
+  }
 }

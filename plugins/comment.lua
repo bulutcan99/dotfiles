@@ -4,10 +4,11 @@ return {
     keys = {
       { "gcc", mode = "n",          desc = "Comment toggle current line" },
       { "gc",  mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      { "gC",  mode = { "n", "o" }, desc = "Comment toggle linewise (alternative)" }, -- alternatif kısayol
       { "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
       { "gbc", mode = "n",          desc = "Comment toggle current block" },
       { "gb",  mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-      { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
+      { "gB",  mode = { "n", "o" }, desc = "Comment toggle blockwise (alternative)" }, -- yeni kısayol
       {
         "<leader>/",
         function()
@@ -17,7 +18,7 @@ return {
       },
       {
         "<leader>/",
-          "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+        "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
         mode = "v",
         desc = "Toggle comment",
       }
@@ -27,4 +28,3 @@ return {
     end,
   },
 }
-

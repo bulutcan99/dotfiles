@@ -7,3 +7,4 @@ install:
 	# neovim
 	brew install neovim
 	brew install lua-language-server
+	brew install llvm
