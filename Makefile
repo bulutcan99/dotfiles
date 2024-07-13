@@ -6,3 +6,4 @@ install:
 	brew install hashicorp/tap/terraform
 	# neovim
 	brew install neovim
+	brew install lua-language-server
