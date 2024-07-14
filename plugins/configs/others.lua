@@ -1,7 +1,7 @@
 local M = {}
 
 M.blankline = {
-  indentLine_enabled = 1,
+  indentLine_enabled = 0,
   filetype_exclude = {
     "help",
     "terminal",
