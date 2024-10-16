@@ -114,6 +114,4 @@ alias vi="nvim"
 alias v="nvim"
 
 export PATH=/Users/bulutgocer/.tiup/bin:$PATH
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
