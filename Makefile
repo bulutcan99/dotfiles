@@ -23,6 +23,7 @@ install:
 	brew install fzf
 	brew install tpm
 	brew install yq
+	brew install tmux-mem-cpu-load
 
 	#lazyvim
 	mv ~/.config/nvim{,.bak}
