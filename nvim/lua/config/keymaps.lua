@@ -31,4 +31,9 @@ keymap.set("n", "<Leader>tl", "<C-w>w", { desc = "Switch to next window" }) -- S
 keymap.set("n", "<Leader>tv", ":vsplit<Return>", { desc = "Vertical split window" }) -- Split window vertically
 keymap.set("n", "<Leader>ths", ":split<Return>", { desc = "Horizontal split window" }) -- Split window horizontally
 
--- UI toggles
+-- Muren keymaps
+keymap.set("n", "<Leader>fm", function()
+  vim.cmd("MurenToggle")
+end, { desc = "Open Muren" })
+
+-- User Interface toggles
