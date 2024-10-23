@@ -17,6 +17,9 @@ keymap.set("n", "<Leader>bn", ":enew<Return>", { desc = "Create new buffer" }) -
 keymap.set("n", "<tab>", function()
   vim.cmd("bnext")
 end, { desc = "Go to next buffer" })
+keymap.set("n", "<Leader>bO", function()
+  vim.cmd("1,$bd!") -- Delete all buffers
+end, { desc = "Save and close all buffers" })
 
 -- Switch to the previous buffer
 keymap.set("n", "<S-tab>", function()

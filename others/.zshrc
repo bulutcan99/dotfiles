@@ -115,3 +115,5 @@ alias v="nvim"
 
 export PATH=/Users/bulutgocer/.tiup/bin:$PATH
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/Cellar/sdl2_gfx/1.0.4/lib:/opt/homebrew/Cellar/sdl2/2.30.8/lib:/opt/homebrew/Cellar/sdl2_image/2.8.2_2/lib"
+
