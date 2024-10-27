@@ -37,3 +37,6 @@ install:
 
 	# rust
 	rustup component add rust-analyzer
+
+	#npm
+	npm install -g whiz_cli
