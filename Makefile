@@ -39,4 +39,5 @@ install:
 	rustup component add rust-analyzer
 
 	#npm
-	npm install -g whiz_cli
+	npm i @abhagsain/ai-cli -g
+
