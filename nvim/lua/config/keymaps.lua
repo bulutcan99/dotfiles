@@ -15,15 +15,15 @@ keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" }) -- Select the entire f
 -- Buffer editing
 keymap.set("n", "<Leader>bn", ":enew<Return>", { desc = "Create new buffer" }) -- Create a new empty buffer
 keymap.set("n", "<tab>", function()
-  vim.cmd("bnext")
+    vim.cmd("bnext")
 end, { desc = "Go to next buffer" })
 keymap.set("n", "<Leader>bO", function()
-  vim.cmd("1,$bd!") -- Delete all buffers
+    vim.cmd("1,$bd!") -- Delete all buffers
 end, { desc = "Save and close all buffers" })
 
 -- Switch to the previous buffer
 keymap.set("n", "<S-tab>", function()
-  vim.cmd("bprev")
+    vim.cmd("bprev")
 end, { desc = "Go to previous buffer" })
 
 -- Window editing
@@ -31,12 +31,22 @@ keymap.set("n", "<Leader>tc", "<C-w>c", { desc = "Close current window" }) -- Cl
 keymap.set("n", "<Leader>tl", "<C-w>w", { desc = "Switch to next window" }) -- Switch to the next window
 
 -- Split Windows
-keymap.set("n", "<Leader>tv", ":vsplit<Return>", { desc = "Vertical split window" }) -- Split window vertically
-keymap.set("n", "<Leader>ths", ":split<Return>", { desc = "Horizontal split window" }) -- Split window horizontally
+keymap.set(
+    "n",
+    "<Leader>tv",
+    ":vsplit<Return>",
+    { desc = "Vertical split window" }
+) -- Split window vertically
+keymap.set(
+    "n",
+    "<Leader>ths",
+    ":split<Return>",
+    { desc = "Horizontal split window" }
+) -- Split window horizontally
 
 -- Muren keymaps
 keymap.set("n", "<Leader>fm", function()
-  vim.cmd("MurenToggle")
+    vim.cmd("MurenToggle")
 end, { desc = "Open Muren" })
 
 -- User Interface toggles
