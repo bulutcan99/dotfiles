@@ -1,10 +1,19 @@
 return {
-    "folke/snacks.nvim",
-    opts = {
-        terminal = {
-            win = {
-                position = "float",
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function()
+        require("toggleterm").setup({
+            size = 10,
+            open_mapping = [[<C-y>]],
+            shading_factor = 2,
+            direction = "float",
+            float_opts = {
+                border = "curved",
+                highlights = {
+                    border = "Normal",
+                    background = "Normal",
+                },
             },
-        },
-    },
+        })
+    end,
 }
