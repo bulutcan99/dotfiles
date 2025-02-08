@@ -34,5 +34,5 @@ return {
             desc = "Navigate to the previous pane",
         },
     },
-    lazy = false, -- Eğer tmux sürekli kullanılacaksa lazy yüklemeyi devre dışı bırakabilirsiniz.
+    lazy = false,
 }
