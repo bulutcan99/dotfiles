@@ -5,9 +5,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- Select All
-keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" }) -- Select the entire file
-
 -- Buffer editing
 keymap.set("n", "<Leader>bn", ":enew<Return>", { desc = "Create new buffer" }) -- Create a new empty buffer
 keymap.set("n", "<tab>", function()
