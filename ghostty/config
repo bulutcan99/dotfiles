@@ -125,7 +125,7 @@ window-padding-x = 4,2
 window-padding-y = 6,0
 
 font-family = "CaskaydiaCove Nerd Font Mono"
-font-size = 17
+font-size = 19
 
 # Valid values:
 # 
@@ -208,3 +208,8 @@ keybind = super+r=reload_config
 # This doesn't work when in tmux, if outside tmux the regular ctrl+l works
 # keybind = super+k=clear_screen
 background-opacity = 0.8
+
+#[macos_input]
+macos-option-as-alt = true
+keybind = alt+left=unbind
+keybind = alt+right=unbind
