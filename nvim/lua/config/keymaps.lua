@@ -17,3 +17,14 @@ end, { desc = "Go to previous buffer" })
 vim.keymap.set("n", "dar", function()
     vim.cmd("delm! | delm A-Z0-9")
 end, { desc = "Delete all a-z / A-Z marks" })
+
+-- Terminal
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+
+-- Don't yank on delete/change operations
+keymap.set({ "n", "v" }, "d", [["_d]], opts)
+keymap.set({ "n", "v" }, "D", [["_D]], opts)
+keymap.set({ "n", "v" }, "c", [["_c]], opts)
+keymap.set({ "n", "v" }, "C", [["_C]], opts)
+keymap.set({ "n", "v" }, "x", [["_x]], opts)
+keymap.set({ "n", "v" }, "X", [["_X]], opts)
