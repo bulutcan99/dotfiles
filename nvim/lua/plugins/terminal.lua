@@ -6,12 +6,16 @@ return {
         local Terminal = require("toggleterm.terminal").Terminal
 
         toggleterm.setup({
-            size = 10,
-            open_mapping = [[<C-p>]],
-            shading_factor = 2,
             direction = "float",
             float_opts = {
                 border = "curved",
+                width = function()
+                    return vim.o.columns
+                end,
+                height = function()
+                    return vim.o.lines
+                end,
+                winblend = 0,
                 highlights = {
                     border = "Normal",
                     background = "Normal",
@@ -19,21 +23,20 @@ return {
             },
         })
 
-        -- CTRL+P ile toggle yapıyoruz
+        -- 1 numaralı terminali elle tanımlıyoruz
+        local main_term = Terminal:new({ id = 1 })
+
+        -- CTRL+P ile toggle ediyoruz
         vim.keymap.set("n", "<C-p>", function()
-            toggleterm.toggle(1) -- 1 numaralı terminali aç/kapat
+            main_term:toggle()
         end, { noremap = true, silent = true })
 
-        -- Akıllı terminal kapatma fonksiyonu
+        -- Akıllı kapatma
         local function smart_kill_terminal()
-            local buftype = vim.bo.buftype
-            if buftype == "terminal" then
-                -- Eğer şu an terminal buffer'ındaysan sadece onu kapat
+            if vim.bo.buftype == "terminal" then
                 vim.cmd("bdelete!")
             else
-                -- Eğer terminalde değilsen tüm açık terminalleri kapat
-                local terms = require("toggleterm.terminal").get_all()
-                for _, term in ipairs(terms) do
+                for _, term in ipairs(require("toggleterm.terminal").get_all()) do
                     if term:is_open() then
                         term:close()
                     end
@@ -41,7 +44,6 @@ return {
             end
         end
 
-        -- CTRL+A ile çalıştırıyoruz
         vim.keymap.set(
             "n",
             "<C-a>",
