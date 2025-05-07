@@ -13,7 +13,20 @@ keymap.set("n", "<S-tab>", function()
     vim.cmd("bprev")
 end, { desc = "Go to previous buffer" })
 
--- Markers
+-- Close all buffers
+keymap.set("n", "<leader>bO", function()
+    local buffers = vim.api.nvim_list_bufs()
+    for _, buf in ipairs(buffers) do
+        if vim.api.nvim_buf_is_loaded(buf) then
+            vim.api.nvim_buf_delete(buf, { force = true })
+        end
+    end
+
+    -- Yeni boş bir buffer oluştur
+    vim.cmd("enew") -- :enew = boş, yeni bir buffer
+end, { desc = "Close ALL buffers and open a new empty buffer" })
+
+-- Marks
 vim.keymap.set("n", "dar", function()
     vim.cmd("delm! | delm A-Z0-9")
 end, { desc = "Delete all a-z / A-Z marks" })

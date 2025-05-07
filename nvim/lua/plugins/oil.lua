@@ -14,8 +14,18 @@ return {
                     return name == ".." or name == ".git"
                 end,
             },
+            float = {
+                padding = 2,
+                max_width = 90,
+                max_height = 0,
+            },
             win_options = {
                 wrap = true,
+                winblend = 0,
+            },
+            keymaps = {
+                ["<C-c>"] = false,
+                ["q"] = "actions.close",
             },
         })
         -- Open parent directory in current window
@@ -25,8 +35,5 @@ return {
             "<CMD>Oil<CR>",
             { desc = "Open parent directory" }
         )
-
-        -- Open parent directory in floating window
-        vim.keymap.set("n", "<space>-", require("oil").toggle_float)
     end,
 }
