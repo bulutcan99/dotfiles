@@ -85,19 +85,19 @@ custom-shader = shaders/bloom025.glsl
 #   * `quit-after-last-window-closed=true` - This ensures that the Ghostty
 #     process will exit when the command exits. Additionally, the
 #     `quit-after-last-window-closed-delay` is unset.
-# ############################################################################ 
+# ############################################################################
 # Horizontal window padding. This applies padding between the terminal cells
 # and the left and right window borders. The value is in points, meaning that
 # it will be scaled appropriately for screen DPI.
-# 
+#
 # If this value is set too large, the screen will render nothing, because the
 # grid will be completely squished by the padding. It is up to you as the user
 # to pick a reasonable value. If you pick an unreasonable value, a warning
 # will appear in the logs.
-# 
+#
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
-# 
+#
 # To set a different left and right padding, specify two numerical values
 # separated by a comma. For example, `window-padding-x = 2,4` will set the
 # left padding to 2 and the right padding to 4. If you want to set both
@@ -108,15 +108,15 @@ window-padding-x = 4,2
 # Vertical window padding. This applies padding between the terminal cells and
 # the top and bottom window borders. The value is in points, meaning that it
 # will be scaled appropriately for screen DPI.
-# 
+#
 # If this value is set too large, the screen will render nothing, because the
 # grid will be completely squished by the padding. It is up to you as the user
 # to pick a reasonable value. If you pick an unreasonable value, a warning
 # will appear in the logs.
-# 
+#
 # Changing this configuration at runtime will only affect new terminals,
 # i.e. new windows, tabs, etc.
-# 
+#
 # To set a different top and bottom padding, specify two numerical values
 # separated by a comma. For example, `window-padding-y = 2,4` will set the
 # top padding to 2 and the bottom padding to 4. If you want to set both
@@ -128,17 +128,17 @@ font-family = "CaskaydiaCove Nerd Font Mono"
 font-size = 19
 
 # Valid values:
-# 
+#
 #   * `true`
 #   * `false` - windows won't have native decorations, i.e. titlebar and
 #      borders. On macOS this also disables tabs and tab overview.
-# 
+#
 # The "toggle_window_decoration" keybind action can be used to create
 # a keybinding to toggle this setting at runtime.
-# 
+#
 # Changing this configuration in your configuration and reloading will
 # only affect new windows. Existing windows will not be affected.
-# 
+#
 # macOS: To hide the titlebar without removing the native window borders
 #        or rounded corners, use `macos-titlebar-style = hidden` instead.
 macos-titlebar-style = hidden
@@ -185,13 +185,13 @@ keybind = cmd+s=toggle_quick_terminal
 # sequences on macOS if you use them via the *Alt* key. You may set this to
 # `false` to restore the macOS *Alt* key unicode sequences but this will break
 # terminal sequences expecting *Alt* to work.
-# 
+#
 # The values `left` or `right` enable this for the left or right *Option*
 # key, respectively.
-# 
+#
 # Note that if an *Option*-sequence doesn't produce a printable character, it
 # will be treated as *Alt* regardless of this setting. (i.e. `alt+ctrl+a`).
-# 
+#
 # This does not work with GLFW builds.
 macos-option-as-alt = left
 
@@ -210,5 +210,44 @@ keybind = super+r=reload_config
 
 # This doesn't work when in tmux, if outside tmux the regular ctrl+l works
 # keybind = super+k=clear_screen
-background-opacity = 0.8
 
+# When not running tmux I see what C-enter sends
+# I can do `/bin/cat -v` and then pressed C-enter
+# Ghostty sends: ^[[27;5;13~
+#
+# The problem is that when I run tmux, nothing is sent, so I'm sending those
+# keys in my tmux.conf file
+
+# Customize the macOS app icon.
+#
+# This only affects the icon that appears in the dock, application
+# switcher, etc. This does not affect the icon in Finder because
+# that is controlled by a hardcoded value in the signed application
+# bundle and can't be changed at runtime. For more details on what
+# exactly is affected, see the `NSApplication.icon` Apple documentation;
+# that is the API that is being used to set the icon.
+#
+# WARNING: The `custom-style` option is _experimental_. We may change
+# the format of the custom styles in the future. We're still finalizing
+# the exact layers and customization options that will be available.
+#
+# Other caveats:
+#
+#   * The icon in the update dialog will always be the official icon.
+#     This is because the update dialog is managed through a
+#     separate framework and cannot be customized without significant
+#     effort.
+#
+# Valid values:
+#
+#  * `official` - Use the official Ghostty icon.
+#  * `blueprint`, `chalkboard`, `microchip`, `glass`, `holographic`,
+#    `paper`, `retro`, `xray` - Official variants of the Ghostty icon
+#    hand-created by artists (no AI).
+#  * `custom-style` - Use the official Ghostty icon but with custom
+#    styles applied to various layers. The custom styles must be
+#    specified using the additional `macos-icon`-prefixed configurations.
+#    The `macos-icon-ghost-color` and `macos-icon-screen-color`
+#    configurations are required for this style.
+#
+macos-icon = official
