@@ -125,7 +125,7 @@ window-padding-x = 4,2
 window-padding-y = 6,0
 
 font-family = "CaskaydiaCove Nerd Font Mono"
-font-size = 25
+font-size = 19
 
 # Valid values:
 # 
@@ -193,7 +193,10 @@ keybind = cmd+s=toggle_quick_terminal
 # will be treated as *Alt* regardless of this setting. (i.e. `alt+ctrl+a`).
 # 
 # This does not work with GLFW builds.
-macos-option-as-alt = right
+macos-option-as-alt = left
+
+keybind = alt+left=unbind
+keybind = alt+right=unbind
 
 # Duration (in seconds) of the quick terminal enter and exit animation.
 # Set it to 0 to disable animation completely. This can be changed at
@@ -209,7 +212,3 @@ keybind = super+r=reload_config
 # keybind = super+k=clear_screen
 background-opacity = 0.8
 
-#[macos_input]
-macos-option-as-alt = true
-keybind = alt+left=unbind
-keybind = alt+right=unbind
