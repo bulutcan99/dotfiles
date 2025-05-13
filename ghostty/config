@@ -251,3 +251,5 @@ keybind = super+r=reload_config
 #    configurations are required for this style.
 #
 macos-icon = official
+background-opacity = 0.75
+background-blur = true
